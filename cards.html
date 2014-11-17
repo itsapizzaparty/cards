@@ -1,0 +1,79 @@
+<!DOCTYPE >
+<head>
+<link rel="stylesheet" type="text/css" href="cards_styles.css">
+<link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+<h2 id="think">Think of a card. Any card...<h2>
+<p><span id="forreal">Oh! For real!? That never happens. Want to play again?<br>
+</span><p>
+<button>Click here when you're ready.</button>
+<div id="cover"><p>Was it the <span id="Rank"></span> of <span id="Suit"></span>?</p>
+<p><span id="yes">Yes </span> / <span id="no"> No</span>?</p></div>
+
+
+<script>
+$(document).ready(function(){
+  $("button").click(random);
+
+  $("button").click(function(){
+    $("#cover").addClass("important");
+    $("button").hide();
+
+  });
+
+  $("#no").click(random);
+
+  $("#yes").click(function(){
+   $("#cover").removeClass("important");
+   $("#forreal").addClass("really");
+   $("#again").addClass("important");
+   $("button").show();
+  });
+
+});
+
+var random = function(){
+
+var suitNumber = Math.floor((Math.random() * 4) + 1);
+
+if (suitNumber === 1) {
+    var suitNumber = "Spades";
+  }
+  
+else if (suitNumber === 2) {
+      var suitNumber = "Hearts";
+    }
+else if (suitNumber === 3) {
+      var suitNumber = "Clubs";
+    }
+else {
+      var suitNumber = "Diamonds";
+    }  
+
+ var RankNumber = Math.floor((Math.random() * 13) + 1);   
+
+ if (RankNumber === 1) {
+    var RankNumber = "Ace";
+ }
+ else if (RankNumber === 11) {
+    var RankNumber = "Jack"
+ }
+ else if (RankNumber === 12) {
+    var RankNumber = "Queen";
+ }
+ else if (RankNumber === 13) {
+    var RankNumber = "King";
+ }
+ else {
+ }
+
+ document.getElementById("Rank").innerHTML=RankNumber;
+ document.getElementById("Suit").innerHTML=suitNumber;
+
+}
+
+</script>
+</body>
+</HTML>
